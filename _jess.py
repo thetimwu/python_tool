@@ -8,7 +8,7 @@ import time
 root=tk.Tk()
 
 root.geometry("460x300")
-root.title("Python-screenShot")
+root.title("Python ScreenShot Tool")
 
 le = tk.StringVar()
 top = tk.StringVar()
@@ -59,7 +59,7 @@ def download_mp3():
 
     for x in range(1, 12):
         new_url = uv.replace('2', str(x))
-        print(new_url)
+        #print(new_url)
         doc = requests.get(new_url)
         with open('' + pv + str(x) + '.mp3', 'wb') as f:
             f.write(doc.content)
