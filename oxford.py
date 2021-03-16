@@ -1,8 +1,4 @@
 import pyautogui
-import tkinter as tk
-import requests
-import bs4
-import re
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -54,10 +50,9 @@ def turnpage_takescreenshot(foldername):
         try:
             nextbutton = driver.find_element_by_css_selector(".pagination .go-next div") #div
         except NoSuchElementException:
-            try:
-                nextbutton = driver.find_element_by_css_selector(".pagination .go-next")
-            except NoSuchElementException:
-                nextbutton = driver.find_element_by_css_selector(".center .group6 .go-next div")  # div
+            nextbutton = driver.find_element_by_css_selector(".pagination .go-next")
+        except NoSuchElementException:
+            nextbutton = driver.find_element_by_css_selector(".center .group6 .go-next div")  # div
         nextbutton.click()
 
 def selectbooks():
