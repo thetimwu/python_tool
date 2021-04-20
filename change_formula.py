@@ -1,6 +1,8 @@
-import openpyxl
 
-weekly_path = 'C:/P/gmg/gmg_spreadsheet/Weekly Meterage 190321.xlsm'
+import openpyxl
+import tkinter.messagebox as msgbox
+
+weekly_path = r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages\Weekly Meterage 230421.xlsm'
 weekly_wb = openpyxl.load_workbook(weekly_path, read_only=False, keep_vba=True)
 weekly_ws_render = weekly_wb["Render Squads"]
 
@@ -11,6 +13,7 @@ def update_formula():
     formula = weekly_ws_render.cell(row_total, col_total).value
     num = formula[len(formula)-3:len(formula)-1]
     num_new = int(num)+1
+    # total
     weekly_ws_render.cell(row_total, col_total).value = formula.replace(num, str(num_new))
     # total meter
     formula_meter = weekly_ws_render.cell(row_total, col_total-1).value
@@ -33,4 +36,5 @@ def get_total_row():
 
 
 update_formula()
-weekly_wb.save('C:/P/gmg/gmg_spreadsheet/Weekly Meterage 190321t.xlsm')
+msgbox.showinfo(message="done")
+weekly_wb.save(r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages\Weekly Meterage 230421.xlsm')

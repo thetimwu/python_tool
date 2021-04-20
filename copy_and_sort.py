@@ -1,5 +1,3 @@
-import openpyxl as xl
-import tkinter.messagebox as msgbox
 # copy worksheet from one to another, delete empty rows in between and sort
 
 file_name = "Weekly Meterage 160421.xlsm"

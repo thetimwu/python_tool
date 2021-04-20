@@ -1,4 +1,5 @@
 import openpyxl
+# pull names from weekly
 
 weekly_path = 'C:/P/gmg/gmg_spreadsheet/Weekly Meterage 190321.xlsm'
 weekly_wb = openpyxl.load_workbook(weekly_path, read_only=True)
