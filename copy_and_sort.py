@@ -1,4 +1,5 @@
 # copy worksheet from one to another, delete empty rows in between and sort
+import openpyxl as xl
 
 file_name = "Weekly Meterage 160421.xlsm"
 weekly_path = 'C:/p/gmg/gmg_spreadsheet/'+file_name

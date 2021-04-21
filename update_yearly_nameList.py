@@ -1,6 +1,7 @@
 import openpyxl as xl
+from openpyxl.styles.borders import Border, Side
 import tkinter.messagebox as msgbox
-# copy worksheet from one to another, delete empty rows in between and sort
+# update yearly name list by comparing name list from weekly wks.
 
 file_name = "Weekly Meterage 160421.xlsm"
 file_name_yearly = "C:/p/gmg/gmg_spreadsheet/Jan-Dec2021.xlsm"
@@ -120,14 +121,22 @@ def update_yearly(wks, list_weekly, list_yearly):
         if i not in list_yearly:
             print("found: ", i)
             wks.insert_rows(mr)
+            wks.cell(mr, 1).value = i
+            thin_border = Border(left=Side(style='thin'),
+                                 right=Side(style='thin'),
+                                 top=Side(style='thin'),
+                                 bottom=Side(style='thin'))
+            # add border to the inserted row
+            for j in range(1, 16):
+                wks.cell(mr,j).border = thin_border
 
 
 
-print("weekly fgwsh:", name_fungwash_weekly)
-print("yearly fgwsh: ", name_fungwash_yearly)
+# print("weekly fgwsh:", name_fungwash_weekly)
+# print("yearly fgwsh: ", name_fungwash_yearly)
 
 update_yearly(yearly_wb["FungWash"], name_fungwash_weekly, name_fungwash_yearly)
 
 weekly_wb.close()
 # yearly_wb.close()
-yearly_wb.save('C:/P/gmg/gmg_spreadsheet/', file_name)
+yearly_wb.save(file_name_yearly)
