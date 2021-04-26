@@ -1,8 +1,8 @@
 # copy worksheet from one to another, delete empty rows in between and sort
 import openpyxl as xl
 
-file_name = "Weekly Meterage 160421.xlsm"
-weekly_path = 'C:/p/gmg/gmg_spreadsheet/'+file_name
+file_name = "\Weekly Meterage 300421.xlsm"
+weekly_path = r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages'+file_name
 weekly_wb = xl.load_workbook(weekly_path, read_only=False, keep_vba=True, data_only=True)
 weekly_ws_render = weekly_wb["Render Squads"]
 weekly_ws_tiling = weekly_wb["Tiling Squads"]
@@ -25,7 +25,7 @@ def copy_range(wks):
 
 def sort_by_total(e):
     # column total
-    return e[len(e)-6]
+    return e[len(e)-5] #6
 
 def sort_wks(wks):
     copied_range = copy_range(wks)
@@ -93,4 +93,5 @@ sort_wks(asc_render)
 
 
 #msgbox.showinfo(message="done")
-weekly_wb.save('C:/P/gmg/gmg_spreadsheet/'+file_name)
+weekly_wb.save(r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages'+file_name)
+print("done!")

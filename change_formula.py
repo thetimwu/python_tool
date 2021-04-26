@@ -2,7 +2,7 @@
 import openpyxl
 import tkinter.messagebox as msgbox
 
-weekly_path = r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages\Weekly Meterage 230421.xlsm'
+weekly_path = r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages\Weekly Meterage 300421.xlsm'
 weekly_wb = openpyxl.load_workbook(weekly_path, read_only=False, keep_vba=True)
 weekly_ws_render = weekly_wb["Render Squads"]
 
@@ -36,5 +36,6 @@ def get_total_row():
 
 
 update_formula()
-msgbox.showinfo(message="done")
-weekly_wb.save(r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages\Weekly Meterage 230421.xlsm')
+#msgbox.showinfo(message="done")
+weekly_wb.save(r'\\server05\GMG Tree\All GMG\Gmg\Weekly Meetings\Meterages\Weekly Meterage 300421.xlsm')
+print("done!")
